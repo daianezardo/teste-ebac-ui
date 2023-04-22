@@ -10,7 +10,7 @@ describe('Funcionalidade Página de produtos', () => {
             cy.get('[class="product-block grid"]').first().click()
         });
 
-        it.only('Deve adicionar um produto no carrinho', () => {
+        it('Deve adicionar um produto no carrinho', () => {
             cy.get('[class="product-block grid"]').first().click()
             cy.get('.button-variable-item-XS').click()
             cy.get('.button-variable-item-Red').click()
@@ -20,5 +20,8 @@ describe('Funcionalidade Página de produtos', () => {
             cy.get('.dropdown-toggle > .mini-cart-items').should('contain', 2)
         });
 
+        it('Deve adicionar produtos ao carrinho - Usando comando customizado', () => {
+            cy.addProdutos('Abominable Hoodie', 2)
+        });
 
 });

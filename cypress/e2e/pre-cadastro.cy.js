@@ -19,6 +19,13 @@ describe('', () => {
 
         cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
     });
+    
+    it('Deve completar o pré-cadastro com sucesso usando comandos customizados', () => {
+        let emailFaker = faker.internet.email()
+        cy.preCadastro(emailFaker, 'senha!@123456', 'Daiane', 'Zardo')
+
+        cy.get('.woocommerce-message').should('contain', 'Detalhes da conta modificados com sucesso.')
+    });
 
 
 });
